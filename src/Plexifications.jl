@@ -1,5 +1,37 @@
+__precompile__()
+
 module Plexifications
 
-# package code goes here
+import Base: +, -, *, /, \, real, isreal, conj, inv, abs2, show, zero, one, iszero, ==
+# import Unreal: unreal
 
-end # module
+"Error when finding the inverse of a zero divisor."
+const ZeroDivisorInverse = "inverse of zero divisor"
+
+"Error when the denominator in a quotient is zero."
+const ZeroDenominator = "denominator is zero"
+
+include("Plexification.jl")
+include("Complexification.jl")
+include("Perplexification.jl")
+include("Nilplexification.jl")
+include("Cmplex.jl")
+include("Prplex.jl")
+include("Nlplex.jl")
+include("BiComplex.jl")
+include("BiPerplex.jl")
+include("BiNilplex.jl")
+include("DualComplex.jl")
+include("DualPerplex.jl")
+include("random.jl")
+
+# Types
+export Plexification, Complexification, Perplexification, Nilplexification,
+       Cmplex, Prplex, Nlplex,
+       BiComplex, BiPerplex, BiNilplex, DualComplex, DualPerplex
+
+# Methods
+export unreal, array, iszerodivisor, bar,
+       commutator, associator, jacobiator, alternatorL, alternatorR, flexator
+
+end
