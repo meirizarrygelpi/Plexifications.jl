@@ -31,7 +31,7 @@ export Plexification, Complexification, Perplexification, Nilplexification,
        BiComplex, BiPerplex, BiNilplex, DualComplex, DualPerplex
 
 # Methods
-export unreal, array, iszerodivisor, bar,
+export unreal, array, iszerodivisor, bar, random
        commutator, associator, jacobiator, alternatorL, alternatorR, flexator
 
 end

@@ -1,5 +1,6 @@
 using Plexifications
-using Base.Test
+using Base.Test: @testset
 
-# write your own tests here
-@test 1 == 2
+@testset "Cmplex" begin include("cmplex_test.jl") end
+@testset "Prplex" begin include("prplex_test.jl") end
+@testset "Nlplex" begin include("nlplex_test.jl") end
