@@ -148,19 +148,19 @@ end
 function show(io::IO, z::TriComplex)
     print(io, "[1: ")
     print(io, z.l.l.l)
-    print(io, ", i: ")
+    print(io, ", H: ")
     print(io, z.l.l.r)
-    print(io, ", J: ")
+    print(io, ", G: ")
     print(io, z.l.r.l)
-    print(io, ", iJ: ")
+    print(io, ", GH: ")
     print(io, z.l.r.r)
-    print(io, ", K: ")
+    print(io, ", F: ")
     print(io, z.r.l.l)
-    print(io, ", iK: ")
+    print(io, ", FH: ")
     print(io, z.r.l.r)
-    print(io, ", JK: ")
+    print(io, ", FG: ")
     print(io, z.r.r.l)
-    print(io, ", iJK: ")
+    print(io, ", FGH: ")
     print(io, z.r.r.r)
     print(io, "]")
 end
@@ -169,14 +169,14 @@ function random(::Type{TriComplex{T}}) where T <: Real
     TriComplex{T}(random(BiComplex{T}), random(BiComplex{T}))
 end
 
-function bari(z::TriComplex{T}) where T <: Real
-    TriComplex{T}(bari(z.l), bari(z.r))
+function barH(z::TriComplex{T}) where T <: Real
+    TriComplex{T}(barH(z.l), barH(z.r))
 end
 
-function barJ(z::TriComplex{T}) where T <: Real
-    TriComplex{T}(barJ(z.l), barJ(z.r))
+function barG(z::TriComplex{T}) where T <: Real
+    TriComplex{T}(barG(z.l), barG(z.r))
 end
 
-function barK(z::TriComplex{T}) where T <: Real
+function barF(z::TriComplex{T}) where T <: Real
     TriComplex{T}(z.l, -(z.r))
 end

@@ -29,7 +29,7 @@ end
 function show(io::IO, z::Prplex)
     print(io, "[1: ")
     print(io, z.l)
-    print(io, ", s: ")
+    print(io, ", R: ")
     print(io, z.r)
     print(io, "]")
 end
@@ -54,10 +54,10 @@ function abs2(z::Prplex)
     abs2(z.l) - abs2(z.r)
 end
 
-function bars(z::Prplex)
+function barR(z::Prplex)
     Prplex(z.l, -(z.r))
 end
 
 function inv(z::Prplex)
-    bars(z) / abs2(z)
+    barR(z) / abs2(z)
 end

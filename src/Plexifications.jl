@@ -24,19 +24,21 @@ include("BiNilplex.jl")
 include("DualComplex.jl")
 include("DualPerplex.jl")
 include("TriComplex.jl")
+include("TriPerplex.jl")
+include("TriNilplex.jl")
 include("random.jl")
 
 # Types
 export Plexification, Complexification, Perplexification, Nilplexification,
        Cmplex, Prplex, Nlplex,
        BiComplex, BiPerplex, BiNilplex, DualComplex, DualPerplex,
-       TriComplex
+       TriComplex, TriPerplex, TriNilplex
 
 # Methods
 export unreal, array, iszerodivisor, random,
-       bari, bars, bara,
-       barJ, barT, barb,
-       barK,
+       barH, barR, barA,
+       barG, barQ, barB,
+       barF, barP, barC,
        commutator, associator, jacobiator, alternatorL, alternatorR, flexator
 
 end

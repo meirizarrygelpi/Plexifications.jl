@@ -29,7 +29,7 @@ end
     io = IOBuffer()
     show(io, Nlplex(1, 2))
     l = String(take!(io))
-    r = "[1: 1, a: 2]"
+    r = "[1: 1, A: 2]"
     l == r
 end
 
@@ -99,7 +99,7 @@ end
 
 @test begin
     x = random(Nlplex{BigInt})
-    bara(bara(x)) == x
+    barA(barA(x)) == x
 end
 
 @test begin
@@ -110,24 +110,24 @@ end
 @test begin
     x = random(Nlplex{BigInt})
     y = random(Nlplex{BigInt})
-    l = bara(x * y)
-    r = bara(y) * bara(x)
+    l = barA(x * y)
+    r = barA(y) * barA(x)
     l == r
 end
 
 @test begin
     x = random(Nlplex{BigInt})
     y = random(Nlplex{BigInt})
-    l = bara(x + y)
-    r = bara(x) + bara(y)
+    l = barA(x + y)
+    r = barA(x) + barA(y)
     l == r
 end
 
 @test begin
     x = random(Nlplex{BigInt})
     y = random(Nlplex{BigInt})
-    l = bara(x - y)
-    r = bara(x) - bara(y)
+    l = barA(x - y)
+    r = barA(x) - barA(y)
     l == r
 end
 

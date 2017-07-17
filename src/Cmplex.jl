@@ -29,7 +29,7 @@ end
 function show(io::IO, z::Cmplex)
     print(io, "[1: ")
     print(io, z.l)
-    print(io, ", i: ")
+    print(io, ", H: ")
     print(io, z.r)
     print(io, "]")
 end
@@ -54,10 +54,10 @@ function abs2(z::Cmplex)
     abs2(z.l) + abs2(z.r)
 end
 
-function bari(z::Cmplex)
+function barH(z::Cmplex)
     Cmplex(z.l, -(z.r))
 end
 
 function inv(z::Cmplex)
-    bari(z) / abs2(z)
+    barH(z) / abs2(z)
 end

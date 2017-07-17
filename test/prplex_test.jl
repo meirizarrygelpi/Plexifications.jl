@@ -29,7 +29,7 @@ end
     io = IOBuffer()
     show(io, Prplex(1, 2))
     l = String(take!(io))
-    r = "[1: 1, s: 2]"
+    r = "[1: 1, R: 2]"
     l == r
 end
 
@@ -99,7 +99,7 @@ end
 
 @test begin
     x = random(Prplex{BigInt})
-    bars(bars(x)) == x
+    barR(barR(x)) == x
 end
 
 @test begin
@@ -110,24 +110,24 @@ end
 @test begin
     x = random(Prplex{BigInt})
     y = random(Prplex{BigInt})
-    l = bars(x * y)
-    r = bars(y) * bars(x)
+    l = barR(x * y)
+    r = barR(y) * barR(x)
     l == r
 end
 
 @test begin
     x = random(Prplex{BigInt})
     y = random(Prplex{BigInt})
-    l = bars(x + y)
-    r = bars(x) + bars(y)
+    l = barR(x + y)
+    r = barR(x) + barR(y)
     l == r
 end
 
 @test begin
     x = random(Prplex{BigInt})
     y = random(Prplex{BigInt})
-    l = bars(x - y)
-    r = bars(x) - bars(y)
+    l = barR(x - y)
+    r = barR(x) - barR(y)
     l == r
 end
 

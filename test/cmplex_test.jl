@@ -29,7 +29,7 @@ end
     io = IOBuffer()
     show(io, Cmplex(1, 2))
     l = String(take!(io))
-    r = "[1: 1, i: 2]"
+    r = "[1: 1, H: 2]"
     l == r
 end
 
@@ -99,7 +99,7 @@ end
 
 @test begin
     x = random(Cmplex{BigInt})
-    bari(bari(x)) == x
+    barH(barH(x)) == x
 end
 
 @test begin
@@ -110,24 +110,24 @@ end
 @test begin
     x = random(Cmplex{BigInt})
     y = random(Cmplex{BigInt})
-    l = bari(x * y)
-    r = bari(y) * bari(x)
+    l = barH(x * y)
+    r = barH(y) * barH(x)
     l == r
 end
 
 @test begin
     x = random(Cmplex{BigInt})
     y = random(Cmplex{BigInt})
-    l = bari(x + y)
-    r = bari(x) + bari(y)
+    l = barH(x + y)
+    r = barH(x) + barH(y)
     l == r
 end
 
 @test begin
     x = random(Cmplex{BigInt})
     y = random(Cmplex{BigInt})
-    l = bari(x - y)
-    r = bari(x) - bari(y)
+    l = barH(x - y)
+    r = barH(x) - barH(y)
     l == r
 end
 

@@ -49,11 +49,11 @@ end
 function show(io::IO, z::BiNilplex)
     print(io, "[1: ")
     print(io, z.l.l)
-    print(io, ", a: ")
+    print(io, ", A: ")
     print(io, z.l.r)
-    print(io, ", b: ")
+    print(io, ", B: ")
     print(io, z.r.l)
-    print(io, ", ab: ")
+    print(io, ", AB: ")
     print(io, z.r.r)
     print(io, "]")
 end
@@ -62,10 +62,10 @@ function random(::Type{BiNilplex{T}}) where T <: Real
     BiNilplex{T}(random(Nlplex{T}), random(Nlplex{T}))
 end
 
-function bara(z::BiNilplex{T}) where T <: Real
-    BiNilplex{T}(bara(z.l), bara(z.r))
+function barA(z::BiNilplex{T}) where T <: Real
+    BiNilplex{T}(barA(z.l), barA(z.r))
 end
 
-function barb(z::BiNilplex{T}) where T <: Real
+function barB(z::BiNilplex{T}) where T <: Real
     BiNilplex{T}(z.l, -(z.r))
 end

@@ -29,7 +29,7 @@ end
 function show(io::IO, z::Nlplex)
     print(io, "[1: ")
     print(io, z.l)
-    print(io, ", a: ")
+    print(io, ", A: ")
     print(io, z.r)
     print(io, "]")
 end
@@ -54,10 +54,10 @@ function abs2(z::Nlplex)
     abs2(z.l)
 end
 
-function bara(z::Nlplex)
+function barA(z::Nlplex)
     Nlplex(z.l, -(z.r))
 end
 
 function inv(z::Nlplex)
-    bara(z) / abs2(z)
+    barA(z) / abs2(z)
 end

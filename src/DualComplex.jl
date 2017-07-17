@@ -49,11 +49,11 @@ end
 function show(io::IO, z::DualComplex)
     print(io, "[1: ")
     print(io, z.l.l)
-    print(io, ", i: ")
+    print(io, ", H: ")
     print(io, z.l.r)
-    print(io, ", a: ")
+    print(io, ", A: ")
     print(io, z.r.l)
-    print(io, ", ia: ")
+    print(io, ", HA: ")
     print(io, z.r.r)
     print(io, "]")
 end
@@ -62,10 +62,10 @@ function random(::Type{DualComplex{T}}) where T <: Real
     DualComplex{T}(random(Cmplex{T}), random(Cmplex{T}))
 end
 
-function bari(z::DualComplex{T}) where T <: Real
-    DualComplex{T}(bari(z.l), bari(z.r))
+function barH(z::DualComplex{T}) where T <: Real
+    DualComplex{T}(barH(z.l), barH(z.r))
 end
 
-function bara(z::DualComplex{T}) where T <: Real
+function barA(z::DualComplex{T}) where T <: Real
     DualComplex{T}(z.l, -(z.r))
 end

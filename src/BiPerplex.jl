@@ -49,11 +49,11 @@ end
 function show(io::IO, z::BiPerplex)
     print(io, "[1: ")
     print(io, z.l.l)
-    print(io, ", s: ")
+    print(io, ", R: ")
     print(io, z.l.r)
-    print(io, ", T: ")
+    print(io, ", Q: ")
     print(io, z.r.l)
-    print(io, ", sT: ")
+    print(io, ", QR: ")
     print(io, z.r.r)
     print(io, "]")
 end
@@ -62,10 +62,10 @@ function random(::Type{BiPerplex{T}}) where T <: Real
     BiPerplex{T}(random(Prplex{T}), random(Prplex{T}))
 end
 
-function bars(z::BiComplex{T}) where T <: Real
-    BiComplex{T}(bars(z.l), bars(z.r))
+function barR(z::BiComplex{T}) where T <: Real
+    BiComplex{T}(barR(z.l), barR(z.r))
 end
 
-function barT(z::BiPerplex{T}) where T <: Real
+function barQ(z::BiPerplex{T}) where T <: Real
     BiPerplex{T}(z.l, -(z.r))
 end

@@ -49,11 +49,11 @@ end
 function show(io::IO, z::DualPerplex)
     print(io, "[1: ")
     print(io, z.l.l)
-    print(io, ", s: ")
+    print(io, ", R: ")
     print(io, z.l.r)
-    print(io, ", a: ")
+    print(io, ", A: ")
     print(io, z.r.l)
-    print(io, ", sa: ")
+    print(io, ", RA: ")
     print(io, z.r.r)
     print(io, "]")
 end
@@ -62,10 +62,10 @@ function random(::Type{DualPerplex{T}}) where T <: Real
     DualPerplex{T}(random(Prplex{T}), random(Prplex{T}))
 end
 
-function bars(z::DualPerplex{T}) where T <: Real
-    DualPerplex{T}(bars(z.l), bars(z.r))
+function barR(z::DualPerplex{T}) where T <: Real
+    DualPerplex{T}(barR(z.l), barR(z.r))
 end
 
-function bara(z::DualPerplex{T}) where T <: Real
+function barA(z::DualPerplex{T}) where T <: Real
     DualPerplex{T}(z.l, -(z.r))
 end
