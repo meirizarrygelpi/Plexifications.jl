@@ -26,13 +26,15 @@ include("DualPerplex.jl")
 include("TriComplex.jl")
 include("TriPerplex.jl")
 include("TriNilplex.jl")
+include("HyperComplex.jl")
+include("HyperPerplex.jl")
 include("random.jl")
 
 # Types
 export Plexification, Complexification, Perplexification, Nilplexification,
        Cmplex, Prplex, Nlplex,
        BiComplex, BiPerplex, BiNilplex, DualComplex, DualPerplex,
-       TriComplex, TriPerplex, TriNilplex
+       TriComplex, TriPerplex, TriNilplex, HyperComplex, HyperPerplex
 
 # Methods
 export unreal, array, iszerodivisor, random,
