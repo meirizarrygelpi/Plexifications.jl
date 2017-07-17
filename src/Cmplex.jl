@@ -54,6 +54,10 @@ function abs2(z::Cmplex)
     abs2(z.l) + abs2(z.r)
 end
 
+function bari(z::Cmplex)
+    Cmplex(z.l, -(z.r))
+end
+
 function inv(z::Cmplex)
-    conj(z) / abs2(z)
+    bari(z) / abs2(z)
 end

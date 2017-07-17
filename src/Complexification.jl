@@ -36,10 +36,6 @@ function (-)(z::Complexification)
     Complexification(-(z.l), -(z.r))
 end
 
-function conj(z::Complexification)
-    Complexification(conj(z.l), -(z.r))
-end
-
 function (+)(x::Complexification{T}, y::Complexification{T}) where T <: Number
     Complexification{T}(x.l + y.l, x.r + y.r)
 end

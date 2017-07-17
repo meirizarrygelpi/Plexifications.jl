@@ -62,6 +62,10 @@ function random(::Type{BiPerplex{T}}) where T <: Real
     BiPerplex{T}(random(Prplex{T}), random(Prplex{T}))
 end
 
-function bar(z::BiPerplex{T}) where T <: Real
+function bars(z::BiComplex{T}) where T <: Real
+    BiComplex{T}(bars(z.l), bars(z.r))
+end
+
+function barT(z::BiPerplex{T}) where T <: Real
     BiPerplex{T}(z.l, -(z.r))
 end

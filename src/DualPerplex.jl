@@ -62,6 +62,10 @@ function random(::Type{DualPerplex{T}}) where T <: Real
     DualPerplex{T}(random(Prplex{T}), random(Prplex{T}))
 end
 
-function bar(z::DualPerplex{T}) where T <: Real
+function bars(z::DualPerplex{T}) where T <: Real
+    DualPerplex{T}(bars(z.l), bars(z.r))
+end
+
+function bara(z::DualPerplex{T}) where T <: Real
     DualPerplex{T}(z.l, -(z.r))
 end

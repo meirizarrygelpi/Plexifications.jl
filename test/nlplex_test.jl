@@ -99,7 +99,7 @@ end
 
 @test begin
     x = random(Nlplex{BigInt})
-    conj(conj(x)) == x
+    bara(bara(x)) == x
 end
 
 @test begin
@@ -110,24 +110,24 @@ end
 @test begin
     x = random(Nlplex{BigInt})
     y = random(Nlplex{BigInt})
-    l = conj(x * y)
-    r = conj(y) * conj(x)
+    l = bara(x * y)
+    r = bara(y) * bara(x)
     l == r
 end
 
 @test begin
     x = random(Nlplex{BigInt})
     y = random(Nlplex{BigInt})
-    l = conj(x + y)
-    r = conj(x) + conj(y)
+    l = bara(x + y)
+    r = bara(x) + bara(y)
     l == r
 end
 
 @test begin
     x = random(Nlplex{BigInt})
     y = random(Nlplex{BigInt})
-    l = conj(x - y)
-    r = conj(x) - conj(y)
+    l = bara(x - y)
+    r = bara(x) - bara(y)
     l == r
 end
 

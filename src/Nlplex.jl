@@ -54,6 +54,10 @@ function abs2(z::Nlplex)
     abs2(z.l)
 end
 
+function bara(z::Nlplex)
+    Nlplex(z.l, -(z.r))
+end
+
 function inv(z::Nlplex)
-    conj(z) / abs2(z)
+    bara(z) / abs2(z)
 end

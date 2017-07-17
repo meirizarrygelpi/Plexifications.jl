@@ -36,10 +36,6 @@ function (-)(z::Perplexification)
     Perplexification(-(z.l), -(z.r))
 end
 
-function conj(z::Perplexification)
-    Perplexification(conj(z.l), -(z.r))
-end
-
 function (+)(x::Perplexification{T}, y::Perplexification{T}) where T <: Number
     Perplexification{T}(x.l + y.l, x.r + y.r)
 end

@@ -99,7 +99,7 @@ end
 
 @test begin
     x = random(Prplex{BigInt})
-    conj(conj(x)) == x
+    bars(bars(x)) == x
 end
 
 @test begin
@@ -110,24 +110,24 @@ end
 @test begin
     x = random(Prplex{BigInt})
     y = random(Prplex{BigInt})
-    l = conj(x * y)
-    r = conj(y) * conj(x)
+    l = bars(x * y)
+    r = bars(y) * bars(x)
     l == r
 end
 
 @test begin
     x = random(Prplex{BigInt})
     y = random(Prplex{BigInt})
-    l = conj(x + y)
-    r = conj(x) + conj(y)
+    l = bars(x + y)
+    r = bars(x) + bars(y)
     l == r
 end
 
 @test begin
     x = random(Prplex{BigInt})
     y = random(Prplex{BigInt})
-    l = conj(x - y)
-    r = conj(x) - conj(y)
+    l = bars(x - y)
+    r = bars(x) - bars(y)
     l == r
 end
 

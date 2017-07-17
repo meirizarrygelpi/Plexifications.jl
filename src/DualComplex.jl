@@ -62,6 +62,10 @@ function random(::Type{DualComplex{T}}) where T <: Real
     DualComplex{T}(random(Cmplex{T}), random(Cmplex{T}))
 end
 
-function bar(z::DualComplex{T}) where T <: Real
+function bari(z::DualComplex{T}) where T <: Real
+    DualComplex{T}(bari(z.l), bari(z.r))
+end
+
+function bara(z::DualComplex{T}) where T <: Real
     DualComplex{T}(z.l, -(z.r))
 end

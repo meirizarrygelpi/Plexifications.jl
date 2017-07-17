@@ -99,7 +99,7 @@ end
 
 @test begin
     x = random(Cmplex{BigInt})
-    conj(conj(x)) == x
+    bari(bari(x)) == x
 end
 
 @test begin
@@ -110,24 +110,24 @@ end
 @test begin
     x = random(Cmplex{BigInt})
     y = random(Cmplex{BigInt})
-    l = conj(x * y)
-    r = conj(y) * conj(x)
+    l = bari(x * y)
+    r = bari(y) * bari(x)
     l == r
 end
 
 @test begin
     x = random(Cmplex{BigInt})
     y = random(Cmplex{BigInt})
-    l = conj(x + y)
-    r = conj(x) + conj(y)
+    l = bari(x + y)
+    r = bari(x) + bari(y)
     l == r
 end
 
 @test begin
     x = random(Cmplex{BigInt})
     y = random(Cmplex{BigInt})
-    l = conj(x - y)
-    r = conj(x) - conj(y)
+    l = bari(x - y)
+    r = bari(x) - bari(y)
     l == r
 end
 

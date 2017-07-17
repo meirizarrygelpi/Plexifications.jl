@@ -54,6 +54,10 @@ function abs2(z::Prplex)
     abs2(z.l) - abs2(z.r)
 end
 
+function bars(z::Prplex)
+    Prplex(z.l, -(z.r))
+end
+
 function inv(z::Prplex)
-    conj(z) / abs2(z)
+    bars(z) / abs2(z)
 end

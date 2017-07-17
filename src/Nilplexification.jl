@@ -36,10 +36,6 @@ function (-)(z::Nilplexification)
     Nilplexification(-(z.l), -(z.r))
 end
 
-function conj(z::Nilplexification)
-    Nilplexification(conj(z.l), -(z.r))
-end
-
 function (+)(x::Nilplexification{T}, y::Nilplexification{T}) where T <: Number
     Nilplexification{T}(x.l + y.l, x.r + y.r)
 end

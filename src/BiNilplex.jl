@@ -62,6 +62,10 @@ function random(::Type{BiNilplex{T}}) where T <: Real
     BiNilplex{T}(random(Nlplex{T}), random(Nlplex{T}))
 end
 
-function bar(z::BiNilplex{T}) where T <: Real
+function bara(z::BiNilplex{T}) where T <: Real
+    BiNilplex{T}(bara(z.l), bara(z.r))
+end
+
+function barb(z::BiNilplex{T}) where T <: Real
     BiNilplex{T}(z.l, -(z.r))
 end
