@@ -1,6 +1,18 @@
 using Plexifications
 using Base.Test: @test, @test_throws
 
+@test_throws ErrorException begin
+    inv(Cmplex(0, 0.0))
+end
+
+@test begin
+    iszerodivisor(Cmplex(0,0))
+end
+
+@test begin
+    !iszerodivisor(Cmplex(0,1))
+end
+
 @test begin
     length(unreal(1)) == 0
 end

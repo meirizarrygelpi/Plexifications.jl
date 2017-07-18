@@ -1,4 +1,4 @@
-# Plexifications
+# Plexifications.jl
 
 [![Build Status](https://travis-ci.org/meirizarrygelpi/Plexifications.jl.svg?branch=master)](https://travis-ci.org/meirizarrygelpi/Plexifications.jl) [![Build status](https://ci.appveyor.com/api/projects/status/in796bf5m0fecub4?svg=true)](https://ci.appveyor.com/project/meirizarrygelpi/plexifications-jl) [![Coverage Status](https://coveralls.io/repos/github/meirizarrygelpi/Plexifications.jl/badge.svg?branch=master)](https://coveralls.io/github/meirizarrygelpi/Plexifications.jl?branch=master) [![codecov.io](http://codecov.io/github/meirizarrygelpi/Plexifications.jl/coverage.svg?branch=master)](http://codecov.io/github/meirizarrygelpi/Plexifications.jl?branch=master)
 

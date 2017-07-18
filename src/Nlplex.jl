@@ -58,6 +58,14 @@ function barA(z::Nlplex)
     Nlplex(z.l, -(z.r))
 end
 
+function iszerodivisor(z::Nlplex)
+    iszero(z.l)
+end
+
 function inv(z::Nlplex)
+    if iszerodivisor(z)
+        error(ZeroDivisorInverse)
+    end
+
     barA(z) / abs2(z)
 end

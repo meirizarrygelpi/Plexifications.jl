@@ -58,6 +58,14 @@ function barH(z::Cmplex)
     Cmplex(z.l, -(z.r))
 end
 
+function iszerodivisor(z::Cmplex)
+    iszero(z)
+end
+
 function inv(z::Cmplex)
+    if iszerodivisor(z)
+        error(ZeroDivisorInverse)
+    end
+    
     barH(z) / abs2(z)
 end

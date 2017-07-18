@@ -58,6 +58,14 @@ function barR(z::Prplex)
     Prplex(z.l, -(z.r))
 end
 
+function iszerodivisor(z::Prplex)
+    z.l == z.r || z.l == -(z.r)
+end
+
 function inv(z::Prplex)
+    if iszerodivisor(z)
+        error(ZeroDivisorInverse)
+    end
+
     barR(z) / abs2(z)
 end
