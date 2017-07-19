@@ -6,11 +6,11 @@ using Base.Test: @test, @test_throws
 end
 
 @test begin
-    iszerodivisor(BiComplex(0,0))
+    iszerodivisor(BiComplex(0,1,1,0))
 end
 
 @test begin
-    !iszerodivisor(BiComplex(0,1))
+    !iszerodivisor(BiComplex(1,2,3,4))
 end
 
 @test begin
@@ -76,7 +76,23 @@ end
 end
 
 @test begin
+    x = random(Cmplex{BigInt})
+    y = random(BiComplex{BigInt})
+    l = x + y
+    r = y + x
+    l == r
+end
+
+@test begin
     x = random(BiComplex{BigInt})
+    y = random(BiComplex{BigInt})
+    l = x * y
+    r = y * x
+    l == r
+end
+
+@test begin
+    x = random(Cmplex{BigInt})
     y = random(BiComplex{BigInt})
     l = x * y
     r = y * x
@@ -90,6 +106,15 @@ end
     r = -(y - x)
     l == r
 end
+
+@test begin
+    x = random(Cmplex{BigInt})
+    y = random(BiComplex{BigInt})
+    l = x - y
+    r = -(y - x)
+    l == r
+end
+
 
 @test begin
     x = random(BiComplex{BigInt})
@@ -357,5 +382,17 @@ end
     z = random(BiComplex{BigInt})
     l = jacobiator(x, y, z)
     r = 3 * x * y * z
+    l == r
+end
+
+@test begin
+    l = BiComplex(Cmplex(1,2))
+    r = BiComplex(1,2,0)
+    l == r
+end
+
+@test begin
+    l = BiComplex(1, 2, 3, 4.0)
+    r = BiComplex(1.0, 2.0, 3.0, 4.0)
     l == r
 end
