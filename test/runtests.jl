@@ -10,3 +10,4 @@ using Base.Test: @testset
 @testset "BiNilplex" begin include("binilplex_test.jl") end
 
 @testset "DualComplex" begin include("dualcomplex_test.jl") end
+@testset "DualPerplex" begin include("dualperplex_test.jl") end
