@@ -14,10 +14,6 @@ end
 end
 
 @test begin
-    length(unreal(1)) == 0
-end
-
-@test begin
     a = Plexifications.randomBigFloat()
     isreal(BiComplex(a))
 end
@@ -142,6 +138,11 @@ end
 @test begin
     x = random(BiComplex{BigInt})
     barG(barG(x)) == x
+end
+
+@test begin
+    x = random(BiComplex{BigInt})
+    barG(barH(x)) == barH(barG(x))
 end
 
 @test begin
@@ -388,6 +389,12 @@ end
 @test begin
     l = BiComplex(Cmplex(1,2))
     r = BiComplex(1,2,0)
+    l == r
+end
+
+@test begin
+    l = BiComplex(1, 2, 3.0)
+    r = BiComplex(1.0, 2.0, 3.0)
     l == r
 end
 
