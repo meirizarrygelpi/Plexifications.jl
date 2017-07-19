@@ -1,6 +1,14 @@
 using Plexifications
 using Base.Test: @test, @test_throws
 
+@test begin
+    iszerodivisor(0)
+end
+
+@test begin
+    !iszerodivisor(3.14)
+end
+
 @test_throws ErrorException begin
     inv(Cmplex(0, 0.0))
 end
