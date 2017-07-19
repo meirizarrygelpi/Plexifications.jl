@@ -180,3 +180,25 @@ end
 function barP(z::TriPerplex{T}) where T <: Real
     TriPerplex{T}(z.l, -(z.r))
 end
+
+function quadrance(z::TriPerplex)
+    (z * barP(z)).l
+end
+
+function norm(z::TriPerplex)
+    abs2(quadrance(quadrance(z)))
+end
+
+function iszerodivisor(z::TriPerplex)
+    iszerodivisor(quadrance(z))
+end
+
+function inv(z::TriPerplex)
+    if iszerodivisor(z)
+        error(ZeroDivisorInverse)
+    end
+
+    q = quadrance(z)
+    qq = quadrance(q)
+    barP(z) * (barQ(q) * barR(qq)) / abs2(qq)
+end

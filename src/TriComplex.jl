@@ -180,3 +180,25 @@ end
 function barF(z::TriComplex{T}) where T <: Real
     TriComplex{T}(z.l, -(z.r))
 end
+
+function quadrance(z::TriComplex)
+    (z * barF(z)).l
+end
+
+function norm(z::TriComplex)
+    abs2(quadrance(quadrance(z)))
+end
+
+function iszerodivisor(z::TriComplex)
+    iszerodivisor(quadrance(z))
+end
+
+function inv(z::TriComplex)
+    if iszerodivisor(z)
+        error(ZeroDivisorInverse)
+    end
+
+    q = quadrance(z)
+    qq = quadrance(q)
+    barF(z) * (barG(q) * barH(qq)) / abs2(qq)
+end

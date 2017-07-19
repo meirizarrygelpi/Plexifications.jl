@@ -180,3 +180,25 @@ end
 function barB(z::HyperPerplex{T}) where T <: Real
     HyperPerplex{T}(z.l, -(z.r))
 end
+
+function quadrance(z::HyperPerplex)
+    (z * barB(z)).l
+end
+
+function norm(z::HyperPerplex)
+    abs2(quadrance(quadrance(z)))
+end
+
+function iszerodivisor(z::HyperPerplex)
+    iszerodivisor(quadrance(z))
+end
+
+function inv(z::HyperPerplex)
+    if iszerodivisor(z)
+        error(ZeroDivisorInverse)
+    end
+
+    q = quadrance(z)
+    qq = quadrance(q)
+    barB(z) * (barA(q) * barR(qq)) / abs2(qq)
+end

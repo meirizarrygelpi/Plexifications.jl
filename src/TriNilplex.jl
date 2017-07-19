@@ -180,3 +180,25 @@ end
 function barC(z::TriNilplex{T}) where T <: Real
     TriNilplex{T}(z.l, -(z.r))
 end
+
+function quadrance(z::TriNilplex)
+    (z * barC(z)).l
+end
+
+function norm(z::TriNilplex)
+    abs2(quadrance(quadrance(z)))
+end
+
+function iszerodivisor(z::TriNilplex)
+    iszerodivisor(quadrance(z))
+end
+
+function inv(z::TriNilplex)
+    if iszerodivisor(z)
+        error(ZeroDivisorInverse)
+    end
+
+    q = quadrance(z)
+    qq = quadrance(q)
+    barC(z) * (barB(q) * barA(qq)) / abs2(qq)
+end

@@ -180,3 +180,25 @@ end
 function barB(z::HyperComplex{T}) where T <: Real
     HyperComplex{T}(z.l, -(z.r))
 end
+
+function quadrance(z::HyperComplex)
+    (z * barB(z)).l
+end
+
+function norm(z::HyperComplex)
+    abs2(quadrance(quadrance(z)))
+end
+
+function iszerodivisor(z::HyperComplex)
+    iszerodivisor(quadrance(z))
+end
+
+function inv(z::HyperComplex)
+    if iszerodivisor(z)
+        error(ZeroDivisorInverse)
+    end
+
+    q = quadrance(z)
+    qq = quadrance(q)
+    barB(z) * (barA(q) * barH(qq)) / abs2(qq)
+end
