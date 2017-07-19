@@ -17,3 +17,4 @@ using Base.Test: @testset
 @testset "TriNilplex" begin include("trinilplex_test.jl") end
 
 @testset "HyperComplex" begin include("hypercomplex_test.jl") end
+@testset "HyperPerplex" begin include("hyperperplex_test.jl") end
