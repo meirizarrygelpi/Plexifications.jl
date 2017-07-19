@@ -142,7 +142,22 @@ end
 
 @test begin
     x = random(TriComplex{BigInt})
+    barF(barF(x)) == x
+end
+
+@test begin
+    x = random(TriComplex{BigInt})
     barG(barH(x)) == barH(barG(x))
+end
+
+@test begin
+    x = random(TriComplex{BigInt})
+    barF(barH(x)) == barH(barF(x))
+end
+
+@test begin
+    x = random(TriComplex{BigInt})
+    barG(barF(x)) == barF(barG(x))
 end
 
 @test begin
@@ -195,6 +210,30 @@ end
     y = random(TriComplex{BigInt})
     l = barG(x - y)
     r = barG(x) - barG(y)
+    l == r
+end
+
+@test begin
+    x = random(TriComplex{BigInt})
+    y = random(TriComplex{BigInt})
+    l = barF(x * y)
+    r = barF(x) * barF(y)
+    l == r
+end
+
+@test begin
+    x = random(TriComplex{BigInt})
+    y = random(TriComplex{BigInt})
+    l = barF(x + y)
+    r = barF(x) + barF(y)
+    l == r
+end
+
+@test begin
+    x = random(TriComplex{BigInt})
+    y = random(TriComplex{BigInt})
+    l = barF(x - y)
+    r = barF(x) - barF(y)
     l == r
 end
 
@@ -387,6 +426,12 @@ end
 end
 
 @test begin
+    l = TriComplex(Cmplex(1,2))
+    r = TriComplex(1,2)
+    l == r
+end
+
+@test begin
     l = TriComplex(BiComplex(1,2))
     r = TriComplex(1,2,0)
     l == r
@@ -401,5 +446,23 @@ end
 @test begin
     l = TriComplex(1, 2, 3, 4.0)
     r = TriComplex(1.0, 2.0, 3.0, 4.0)
+    l == r
+end
+
+@test begin
+    l = TriComplex(1, 2, 3, 4, 5.0)
+    r = TriComplex(1.0, 2.0, 3.0, 4.0, 5.0)
+    l == r
+end
+
+@test begin
+    l = TriComplex(1, 2, 3, 4, 5, 6.0)
+    r = TriComplex(1.0, 2.0, 3.0, 4.0, 5.0, 6.0)
+    l == r
+end
+
+@test begin
+    l = TriComplex(1, 2, 3, 4, 5, 6, 7.0)
+    r = TriComplex(1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0)
     l == r
 end
