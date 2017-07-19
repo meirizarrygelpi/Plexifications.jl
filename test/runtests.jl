@@ -15,3 +15,5 @@ using Base.Test: @testset
 @testset "TriComplex" begin include("tricomplex_test.jl") end
 @testset "TriPerplex" begin include("triperplex_test.jl") end
 @testset "TriNilplex" begin include("trinilplex_test.jl") end
+
+@testset "HyperComplex" begin include("hypercomplex_test.jl") end
