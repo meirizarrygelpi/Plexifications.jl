@@ -69,3 +69,24 @@ end
 function barA(z::DualPerplex{T}) where T <: Real
     DualPerplex{T}(z.l, -(z.r))
 end
+
+function quadrance(z::DualPerplex)
+    (z * barA(z)).l
+end
+
+function norm(z::DualPerplex)
+    abs2(quadrance(z))
+end
+
+function iszerodivisor(z::DualPerplex)
+    iszerodivisor(quadrance(z))
+end
+
+function inv(z::DualPerplex)
+    if iszerodivisor(z)
+        error(ZeroDivisorInverse)
+    end
+
+    q = quadrance(z)
+    barA(z) * barR(q) / abs2(q)
+end

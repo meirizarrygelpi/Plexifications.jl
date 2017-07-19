@@ -69,3 +69,24 @@ end
 function barA(z::DualComplex{T}) where T <: Real
     DualComplex{T}(z.l, -(z.r))
 end
+
+function quadrance(z::DualComplex)
+    (z * barA(z)).l
+end
+
+function norm(z::DualComplex)
+    abs2(quadrance(z))
+end
+
+function iszerodivisor(z::DualComplex)
+    iszero(quadrance(z))
+end
+
+function inv(z::DualComplex)
+    if iszerodivisor(z)
+        error(ZeroDivisorInverse)
+    end
+
+    q = quadrance(z)
+    barA(z) * barH(q) / abs2(q)
+end

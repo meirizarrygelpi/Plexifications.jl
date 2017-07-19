@@ -69,3 +69,24 @@ end
 function barG(z::BiComplex{T}) where T <: Real
     BiComplex{T}(z.l, -(z.r))
 end
+
+function quadrance(z::BiComplex)
+    (z * barG(z)).l
+end
+
+function norm(z::BiComplex)
+    abs2(quadrance(z))
+end
+
+function iszerodivisor(z::BiComplex)
+    iszero(quadrance(z))
+end
+
+function inv(z::BiComplex)
+    if iszerodivisor(z)
+        error(ZeroDivisorInverse)
+    end
+
+    q = quadrance(z)
+    barG(z) * barH(q) / abs2(q)
+end

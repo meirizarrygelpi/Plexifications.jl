@@ -69,3 +69,24 @@ end
 function barB(z::BiNilplex{T}) where T <: Real
     BiNilplex{T}(z.l, -(z.r))
 end
+
+function quadrance(z::BiNilplex)
+    (z * barB(z)).l
+end
+
+function norm(z::BiNilplex)
+    abs2(quadrance(z))
+end
+
+function iszerodivisor(z::BiNilplex)
+    iszerodivisor(quadrance(z))
+end
+
+function inv(z::BiNilplex)
+    if iszerodivisor(z)
+        error(ZeroDivisorInverse)
+    end
+
+    q = quadrance(z)
+    barB(z) * barA(q) / abs2(q)
+end

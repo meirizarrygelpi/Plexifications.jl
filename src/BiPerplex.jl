@@ -62,10 +62,31 @@ function random(::Type{BiPerplex{T}}) where T <: Real
     BiPerplex{T}(random(Prplex{T}), random(Prplex{T}))
 end
 
-function barR(z::BiComplex{T}) where T <: Real
-    BiComplex{T}(barR(z.l), barR(z.r))
+function barR(z::BiPerplex{T}) where T <: Real
+    BiPerplex{T}(barR(z.l), barR(z.r))
 end
 
 function barQ(z::BiPerplex{T}) where T <: Real
     BiPerplex{T}(z.l, -(z.r))
+end
+
+function quadrance(z::BiPerplex)
+    (z * barQ(z)).l
+end
+
+function norm(z::BiPerplex)
+    abs2(quadrance(z))
+end
+
+function iszerodivisor(z::BiPerplex)
+    iszerodivisor(quadrance(z))
+end
+
+function inv(z::BiPerplex)
+    if iszerodivisor(z)
+        error(ZeroDivisorInverse)
+    end
+
+    q = quadrance(z)
+    barQ(z) * barR(q) / abs2(q)
 end

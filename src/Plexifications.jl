@@ -2,7 +2,7 @@ __precompile__()
 
 module Plexifications
 
-import Base: +, -, *, /, \, real, isreal, inv, abs2, show, zero, one, iszero, ==
+import Base: +, -, *, /, \, real, isreal, inv, abs2, norm, show, zero, one, iszero, ==
 # import Unreal: unreal
 
 "Error when finding the inverse of a zero divisor."
@@ -37,7 +37,7 @@ export Plexification, Complexification, Perplexification, Nilplexification,
        TriComplex, TriPerplex, TriNilplex, HyperComplex, HyperPerplex
 
 # Methods
-export unreal, array, iszerodivisor, random,
+export unreal, array, iszerodivisor, random, quadrance,
        barH, barR, barA,
        barG, barQ, barB,
        barF, barP, barC,
