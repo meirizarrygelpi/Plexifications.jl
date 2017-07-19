@@ -394,6 +394,12 @@ end
 end
 
 @test begin
+    l = BiPerplex(1, 2, 3.0)
+    r = BiPerplex(1.0, 2.0, 3.0)
+    l == r
+end
+
+@test begin
     l = BiPerplex(1, 2, 3, 4.0)
     r = BiPerplex(1.0, 2.0, 3.0, 4.0)
     l == r
