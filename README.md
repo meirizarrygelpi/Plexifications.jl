@@ -39,5 +39,3 @@ HyperPerplex{T <: Real} = Nilplexification{DualPerplex{T}}
 ```
 
 NEEDS DOCS.
-
-NEEDS TESTS.
