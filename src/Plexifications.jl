@@ -2,7 +2,7 @@ __precompile__()
 
 module Plexifications
 
-import Base: +, -, *, /, \, real, isreal, inv, abs2, norm, show, zero, one, iszero, ==
+import Base: +, -, *, /, \, real, isreal, inv, abs2, norm, show, zero, one, iszero, ==, exp
 # import Unreal: unreal
 
 "Error when finding the inverse of a zero divisor."
@@ -41,6 +41,7 @@ export unreal, array, iszerodivisor, random, quadrance,
        barH, barR, barA,
        barG, barQ, barB,
        barF, barP, barC,
-       commutator, associator, jacobiator, alternatorL, alternatorR, flexator
+       commutator, associator, jacobiator, alternatorL, alternatorR, flexator,
+       lozenge, anti_lozenge
 
 end
